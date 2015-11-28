@@ -34,3 +34,10 @@
 <br>
 
 <%= link_to 'New Profile', new_profile_path %>
+
+<div id="tag_cloud">
+  <h3>Tag Cloud</h3>
+  <% tag_cloud Profile.tag_counts, %w[s m l] do |tag, css_class|  %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>

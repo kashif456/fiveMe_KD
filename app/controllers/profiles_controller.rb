@@ -4,7 +4,11 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.all
+    if params[:tag]
+      @profiles = Profile.tagged_with(params[:tag])
+    else
+      @profiles = Profile.all
+    end
   end
 
   # GET /profiles/1
