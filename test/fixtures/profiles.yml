@@ -2,8 +2,8 @@
 
 one:
   fullname: MyString
-  text: 
+  description: MyText
 
 two:
   fullname: MyString
-  text: 
+  description: MyText
