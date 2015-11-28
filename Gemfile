@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'foundation-rails'
 gem 'devise', branch: 'rails4'
 gem 'acts-as-taggable-on'
 gem 'carrierwave'
