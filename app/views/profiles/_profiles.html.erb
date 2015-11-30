@@ -1,37 +1,35 @@
+<!-- Nav Section -->
 <nav class="top-bar" data-topbar role="navigation">
+  <!-- All Profiles -->
   <ul class="title-area">
     <li class="name">
-      <h1><a href="#">Profiles</a></h1>
+      <h1><%= link_to("Profiles", root_path ) %></h1>
     </li>
-     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
   </ul>
 
+  <!-- Right Nav Section -->
   <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li><%= link_to 'New Profile', new_profile_path, class: "button" %></li>      
-      <li><%= link_to("View All Profiles", root_path, class: "button" ) %></li>
+    <ul class="right link">
+      <li><%= link_to 'New Profile', new_profile_path, class: "button" %></li>     
     </ul>
   </section>
 </nav>
 
-<div class="grid-block medium-up-3">
+<!-- Tag Section -->
+Tags: 
+<% tag_cloud Profile.tag_counts, %w[s m l] do |tag, css_class|  %>
+ <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+<% end %>
+
+<!-- Profiles Section -->
+<div class="grid-block row">
   <% @profiles.each do |profile| %>
-    <div class="header panel medium-3">
+    <div class="grid-block column medium-3 panel">
       <div class="sign">
         <h1><%= link_to(profile.fullname, profile) %></h1>
       </div>
       <p><%= profile.description %></p>
     </div>
-  <% end %>
-</div>
-
-<br>
-
-<div id="tag_cloud">
-  <h3>Tag Cloud</h3>
-  <% tag_cloud Profile.tag_counts, %w[s m l] do |tag, css_class|  %>
-    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>
 </div>

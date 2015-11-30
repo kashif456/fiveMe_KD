@@ -6,11 +6,24 @@ body {
 	padding: 30px;
 }
 
-.header.panel {
+.taglet {
+  padding: 20px;
+}
+
+.right.link {
+  padding-right: 10px;
+}
+
+.column + .column:last-child, .columns + .column:last-child, .column + .columns:last-child, .columns + .columns:last-child {
+  float: left;
+}
+
+.panel {
   margin: 3rem auto;
   border: 2px solid #444;
   background: #fff;
-  width:300px;
+  // width:300px;
+  margin: 20px;
 
   
   p {
@@ -45,5 +58,9 @@ body {
       line-height: 2rem;
     }
   }
+}
+
+.panel:last-child {
+  float:left;
 }
 
