@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
+    # find by tag system included here
     if params[:tag]
       @profiles = Profile.tagged_with(params[:tag])
     else
@@ -14,6 +15,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    @profile = Profile.find(params[:id])
   end
 
   # GET /profiles/new
