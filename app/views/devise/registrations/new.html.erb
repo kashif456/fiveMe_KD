@@ -6,22 +6,23 @@
     <%= devise_error_messages! %>
 
     <div class="field">
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name, autofocus: false %>
+    </div>
+
+    <div class="field">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
+      <%= f.email_field :email, autofocus: false %>
     </div>
 
     <div class="field">
-      <% f.fields_for :profile do |p_form| %>
-        <%= p_form.label :fullname %>
-        <%= p_form.text_field :fullname %>
-      <% end %>
-    </div>
-
-    <div class="field">
-      <% f.fields_for :profile do |p_form| %>
-        <%= p_form.label :description %>
-        <%= p_form.text_field :description %>
-      <% end %>
+      <%= f.label :description %><br />
+      <%= f.text_field :description, autofocus: false %>
     </div>
 
     <div class="field">

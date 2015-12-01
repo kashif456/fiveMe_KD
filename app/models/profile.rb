@@ -4,4 +4,8 @@ class Profile < ActiveRecord::Base
 	
 	acts_as_taggable
 	has_many :tags
+
+	def full_name
+		"#{User.first_name} #{User.last_name}"
+	end
 end
