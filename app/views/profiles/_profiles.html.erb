@@ -1,29 +1,5 @@
-<!-- Nav Section -->
-<nav class="top-bar" data-topbar role="navigation">
-  <!-- All Profiles -->
-  <ul class="title-area">
-    <li class="name">
-      <h1><%= link_to("Profiles", root_path ) %></h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-  </ul>
-
-  <!-- Right Nav Section -->
-  <section class="top-bar-section">
-    <ul class="right link">
-      <li><%= link_to 'New Profile', new_profile_path, class: "button" %></li>     
-    </ul>
-  </section>
-</nav>
-
-<!-- Tag Section -->
-Tags: 
-<% tag_cloud Profile.tag_counts, %w[s m l] do |tag, css_class|  %>
- <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-<% end %>
-
 <!-- Profiles Section -->
-<div class="grid-block row">
+<div class="grid-block row profile-panels">
   <% @profiles.each do |profile| %>
     <div class="grid-block column medium-3 panel">
       <div class="sign">

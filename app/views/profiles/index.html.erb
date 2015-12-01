@@ -1,8 +1,32 @@
+<!-- Nav Section -->
+<nav class="top-bar" data-topbar role="navigation">
+  <!-- All Profiles -->
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to("five me", root_path ) %></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+  </ul>
+
+  <!-- Right Nav Section -->
+  <section class="top-bar-section">
+    <ul class="right link">
+      <li><%= link_to 'New Profile', new_profile_path, class: "button" %></li>     
+    </ul>
+  </section>
+</nav>
+
 <% if user_signed_in? %>
   Welcome <b><%= current_user.email %></b>
   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 <% else %>
   You should <%= link_to('Login', new_user_session_path) %> or <%= link_to('Sign up', new_user_registration_path)  %>  
+<% end %>
+
+<!-- Tag Section -->
+Tags: 
+<% tag_cloud Profile.tag_counts, %w[s m l] do |tag, css_class|  %>
+ <%= link_to tag.name, tag_path(tag.name), class: css_class %>
 <% end %>
 
 <div class="profiles" >
